@@ -1,4 +1,3 @@
-%matplotlib inline
 from __future__ import division
 
 from matplotlib import pyplot as plt
