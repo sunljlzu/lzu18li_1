@@ -14,6 +14,7 @@ def density(x, alpha=0.8):
     输入: 一个list, 是一系列一维样本
     输出: 基于DP的density估计
     这是手动版本, 可手动调整alpha参数, alpha越小, 则离散程度越高. 默认0.8.
+    注意, 输出的density范围是-3到3
     """
     values = x
     values = np.array(values)
@@ -22,6 +23,7 @@ def density(x, alpha=0.8):
     N = len(values)
     K = 30
     SEED = int(time.time())
+    x_plot = np.linspace(-3, 3, 200)
 
     def stick_breaking(beta):
         portion_remaining = tt.concatenate([[1], tt.extra_ops.cumprod(1 - beta)[:-1]])

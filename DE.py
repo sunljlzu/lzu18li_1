@@ -12,7 +12,7 @@ import time
 def density(x):
     """
     输入: 一个list, 是一系列一维样本
-    输出: 基于DP的density估计
+    输出: 基于DP的density估计, 范围-3到3
     """
     values = x
     values = np.array(values)
@@ -21,6 +21,7 @@ def density(x):
     N = len(values)
     K = 30
     SEED = int(time.time())
+    x_plot = np.linspace(-3, 3, 200)
 
     def stick_breaking(beta):
         portion_remaining = tt.concatenate([[1], tt.extra_ops.cumprod(1 - beta)[:-1]])
